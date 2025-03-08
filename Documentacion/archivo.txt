@@ -1,0 +1,2 @@
+USUARIO(“dmorales”,”miPassword”,1)
+PIEZA(“Procesador Intel i7”, 2500.00)
