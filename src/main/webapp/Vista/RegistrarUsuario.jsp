@@ -6,6 +6,7 @@
 
 <%@page import="java.sql.*"%>
 <%@page import="com.mysql.jdbc.Driver"%>
+<%@page import="com.mycompany.proyecto1_ipc2_2025.resources.encriptacion.EncriptarMD5"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -17,18 +18,9 @@
     </head>
     <body>
     <body class="flex items-center justify-center min-h-screen bg-gray-100">
-        <%
-            final String URL_MYSQL = "jdbc:mysql://localhost:3306/Tech_Solutions_Hub";
-            final String USER = "root";
-            final String PASSWORD = "brandon031200";
-
-            //Agregando connection y statement solo para ingresar datos a la DB
-            Connection connection = null;
-            Statement statement = null;
-        %>
         <div class="w-full max-w-md p-6 bg-white shadow-lg rounded-lg">
             <h2 class="text-2xl font-bold text-center text-gray-800 mb-6">Registrar Usuario</h2>
-            <form action="RegistrarUsuario.jsp" method="post">
+            <form action="${pageContext.servletContext.contextPath}/RegistrarUsuario" method="post">
                 <div class="mb-4">
                     <label class="block text-gray-700 font-medium mb-2" for="user">Nombre Usuario</label>
                     <input type="text" id="user" name="user" required class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500" placeholder="Usuario">
@@ -53,23 +45,6 @@
                 <a><a href="../index.jsp" class="btn btn-danger mt-2">Cancelar</a>
             </form>
         </div>
-        <%
-            if (request.getParameter("enviar") != null) {
-                String nombre = request.getParameter("user");
-                String password = request.getParameter("password1");
-                String rol = request.getParameter("rol");
-                try {
-                    Class.forName("com.mysql.jdbc.Driver");
-                    connection = DriverManager.getConnection(URL_MYSQL, USER, PASSWORD);
-                    statement = connection.createStatement();
-                    statement.executeUpdate("INSERT INTO Usuario (nombre_usuario, password, tipo_rol_fk) VALUES('" + nombre + "', '" + password + "', '" + rol + "');");
-                    
-                    request.getRequestDispatcher("../index.jsp").forward(request, response);
-                } catch (Exception e) {
-                    out.print(e);
-                }
-            }
-        %>
     </body>
 </body>
 </html>
