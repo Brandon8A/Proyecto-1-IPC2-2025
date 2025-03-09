@@ -4,6 +4,8 @@
     Author     : brandon
 --%>
 
+<%@page import="java.sql.*"%>
+<%@page import="com.mysql.jdbc.Driver"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -15,6 +17,15 @@
     </head>
     <body>
     <body class="flex items-center justify-center min-h-screen bg-gray-100">
+        <%
+            final String URL_MYSQL = "jdbc:mysql://localhost:3306/Tech_Solutions_Hub";
+            final String USER = "root";
+            final String PASSWORD = "brandon031200";
+
+            //Agregando connection y statement solo para ingresar datos a la DB
+            Connection connection = null;
+            Statement statement = null;
+        %>
         <div class="w-full max-w-md p-6 bg-white shadow-lg rounded-lg">
             <h2 class="text-2xl font-bold text-center text-gray-800 mb-6">Registrar Usuario</h2>
             <form action="RegistrarUsuario.jsp" method="post">
@@ -32,40 +43,33 @@
                 </div>
                 <div class="flex justify-between items-center mb-4">
                     <label class="block text-gray-700 font-medium mb-2" for="password">Seleccionar Rol</label>
-                    <select class="form-select" aria-label="Default select example">
+                    <select class="form-select" name="rol" aria-label="Default select example">
                         <option value="1">Encargado de Ensamblaje</option>
                         <option value="2">Encargado de Ventas</option>
                         <option value="3">Administrador</option>
                     </select>
                 </div>
-                <button type="submit" class="w-full bg-purple-600 hover:bg-purple-700 text-white font-medium py-2 rounded-lg transition">Registrar</button>
+                <button name="enviar" type="submit" class="w-full bg-purple-600 hover:bg-purple-700 text-white font-medium py-2 rounded-lg transition">Registrar</button>
                 <a><a href="../index.jsp" class="btn btn-danger mt-2">Cancelar</a>
             </form>
         </div>
-    </body>
-</body>
-<%
-        if (request.getParameter("guardar") != null) {
-            String user = request.getParameter("user");
-            String password1 = request.getParameter("password1");
-            String password2 = request.getParameter("password2");
-            //Validar passwords
-            if (password1.equals(password2)) {
-                //realizar conexion a base de datos
+        <%
+            if (request.getParameter("enviar") != null) {
+                String nombre = request.getParameter("user");
+                String password = request.getParameter("password1");
+                String rol = request.getParameter("rol");
                 try {
                     Class.forName("com.mysql.jdbc.Driver");
                     connection = DriverManager.getConnection(URL_MYSQL, USER, PASSWORD);
                     statement = connection.createStatement();
-                    statement.executeUpdate("UPDATE user SET user= '" + user + "', password= '" + encriptar.getMD5(password1) + "'WHERE id= '" + sesion.getAttribute("id") + "';");
-                    sesion.setAttribute("user", user);
-                    response.sendRedirect("index.jsp");
-                    //request.getRequestDispatcher("index.jsp").forward(request, response);
+                    statement.executeUpdate("INSERT INTO Usuario (nombre_usuario, password, tipo_rol_fk) VALUES('" + nombre + "', '" + password + "', '" + rol + "');");
+                    
+                    request.getRequestDispatcher("../index.jsp").forward(request, response);
                 } catch (Exception e) {
                     out.print(e);
                 }
-            } else {
-                out.print("Los passwords no coinciden");
-        }
-        }
-    %>
+            }
+        %>
+    </body>
+</body>
 </html>
