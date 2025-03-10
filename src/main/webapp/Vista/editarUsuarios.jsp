@@ -75,7 +75,7 @@
                                     <th scope="row"><%= resultSet.getString(1)%></th>
                                     <td><%= resultSet.getString(2)%></td>
                                     <td>
-                                        <a href="#"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+                                        <a href="editarRolUsuario.jsp?nombre=<%= resultSet.getString(1)%>&rol=<%= resultSet.getString(2)%>"><i class="fa fa-pencil" aria-hidden="true"></i></a>
                                         <a href="#" class="ml-3"><i class="fa fa-trash"></i></a>
                                     </td>
                                     </td>

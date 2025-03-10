@@ -38,6 +38,14 @@
                 </div>
                 <button name="login" type="submit" class="w-full bg-purple-600 hover:bg-purple-700 text-white font-medium py-2 rounded-lg transition">Iniciar Sesión</button>
             </form>
+            <%
+                String errorMessage = (String) request.getAttribute("errorMessage");
+                if (errorMessage != null) {
+            %>
+            <p style="color: red;"><%= errorMessage%></p>
+            <%
+                }
+            %>
         </div>
     </body>
 </body>

@@ -7,8 +7,9 @@ package com.mycompany.proyecto1_ipc2_2025.resources.controller;
 import com.mycompany.proyecto1_ipc2_2025.resources.conexiondb.ConexionDB;
 import com.mycompany.proyecto1_ipc2_2025.resources.encriptacion.EncriptarMD5;
 import java.io.IOException;
-import java.io.PrintWriter;
+import static java.lang.System.out;
 import java.sql.*;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -97,9 +98,12 @@ public class LoguearUsuario extends HttpServlet {
                         response.sendRedirect("index.jsp");
                     }
                 }
-                System.out.print("<div class=\"alert alert-danger\" role=\"alert\"> Usuario no valido</div>");
+                //out.print("<div class=\"alert alert-danger\" role=\"alert\">Usuario no valido</div>");
+                request.setAttribute("errorMessage", "Usuario o contraseña incorrectos.");
+                RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
+                dispatcher.forward(request, response);
             } catch (Exception e) {
-                System.out.print(e);
+                out.print("error sql jajaaj:" + e);
             }
         }
     }
