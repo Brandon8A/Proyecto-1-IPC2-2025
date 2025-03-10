@@ -23,7 +23,7 @@
         <aside class="w-64 bg-gray-800 text-white flex flex-col">
             <div class="p-5 text-xl font-bold border-b border-gray-700">Panel</div>
             <nav class="flex-1 p-4">
-                <a href="adminPersonal.jsp" class="block px-4 py-2 rounded-lg hover:bg-gray-700">Usuarios</a>
+                <a href="editarUsuarios.jsp" class="block px-4 py-2 rounded-lg hover:bg-gray-700">Usuarios</a>
                 <a href="#" class="block px-4 py-2 rounded-lg hover:bg-gray-700">Reportes</a>
                 <a href="#" class="block px-4 py-2 rounded-lg hover:bg-gray-700">Carga de datos</a>
                 <a href="#" class="block px-4 py-2 rounded-lg hover:bg-gray-700">Ventas</a>

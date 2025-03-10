@@ -1,11 +1,11 @@
 com/mycompany/proyecto1_ipc2_2025/usuario/ObtenerUsuario.class
-com/mycompany/proyecto1_ipc2_2025/resources/controller/RegistarUsuario.class
 com/mycompany/proyecto1_ipc2_2025/JakartaRestConfiguration.class
 com/mycompany/proyecto1_ipc2_2025/resources/encriptacion/EncriptarMD5.class
 com/mycompany/proyecto1_ipc2_2025/resources/database/datosUsuario.class
 com/mycompany/proyecto1_ipc2_2025/resources/controller/RegistrarUsuario.class
 com/mycompany/proyecto1_ipc2_2025/resources/conexiondb/ConexionDB.class
 com/mycompany/proyecto1_ipc2_2025/resources/JakartaEE8Resource.class
+com/mycompany/proyecto1_ipc2_2025/resources/controller/MostrarUsuarios.class
 com/mycompany/proyecto1_ipc2_2025/resources/controller/CerrarSesion.class
 com/mycompany/proyecto1_ipc2_2025/usuario/Usuario.class
 com/mycompany/proyecto1_ipc2_2025/resources/controller/LoguearUsuario.class
