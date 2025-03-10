@@ -14,20 +14,15 @@
     </head>
     <body class="flex h-screen bg-gray-100">
         <%
-
             HttpSession sesion = request.getSession();
-
             if (sesion.getAttribute("logueado") == null || sesion.getAttribute("logueado").equals("0")) {
                 response.sendRedirect("../index.jsp");
             }
         %>
         <!-- Sidebar -->
         <aside class="w-64 bg-gray-800 text-white flex flex-col">
-            <div class="p-5 text-xl font-bold border-b border-gray-700">
-                Panel
-            </div>
+            <div class="p-5 text-xl font-bold border-b border-gray-700">Panel</div>
             <nav class="flex-1 p-4">
-                <a href="panelAdministracion.jsp" class="block px-4 py-2 rounded-lg hover:bg-gray-700">Panel</a>
                 <a href="adminPersonal.jsp" class="block px-4 py-2 rounded-lg hover:bg-gray-700">Usuarios</a>
                 <a href="#" class="block px-4 py-2 rounded-lg hover:bg-gray-700">Reportes</a>
                 <a href="#" class="block px-4 py-2 rounded-lg hover:bg-gray-700">Carga de datos</a>
@@ -35,7 +30,7 @@
                 <a href="#" class="block px-4 py-2 rounded-lg hover:bg-gray-700">Ensamble</a>
             </nav>
             <div class="p-4 border-t border-gray-700">
-                <a href="#" class="block px-4 py-2 text-red-400 hover:bg-red-600 hover:text-white rounded-lg">
+                <a href="${pageContext.servletContext.contextPath}/CerrarSesion" class="block px-4 py-2 text-red-400 hover:bg-red-600 hover:text-white rounded-lg">
                     Cerrar sesión
                 </a>
             </div>
