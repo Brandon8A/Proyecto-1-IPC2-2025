@@ -1,4 +1,5 @@
 com/mycompany/proyecto1_ipc2_2025/usuario/ObtenerUsuario.class
+com/mycompany/proyecto1_ipc2_2025/resources/controller/RegistarUsuario.class
 com/mycompany/proyecto1_ipc2_2025/JakartaRestConfiguration.class
 com/mycompany/proyecto1_ipc2_2025/resources/encriptacion/EncriptarMD5.class
 com/mycompany/proyecto1_ipc2_2025/resources/database/datosUsuario.class

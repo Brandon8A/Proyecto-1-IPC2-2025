@@ -38,36 +38,6 @@
                 </div>
                 <button name="login" type="submit" class="w-full bg-purple-600 hover:bg-purple-700 text-white font-medium py-2 rounded-lg transition">Iniciar Sesión</button>
             </form>
-            <%--
-                        final String URL_MYSQL = "jdbc:mysql://localhost:3306/Tech_Solutions_Hub";
-                        final String USER = "root";
-                        final String PASSWORD = "brandon031200";
-                        Connection connection = null;
-                        Statement statement = null;
-                        ResultSet resultSet = null;
-                        EncriptarMD5 encriptar = new EncriptarMD5();
-
-                        if (request.getParameter("login") != null) {
-                            String user = request.getParameter("user");
-                            String password = request.getParameter("password");
-                            HttpSession sesion = request.getSession();
-                            try {
-                                Class.forName("com.mysql.jdbc.Driver");
-                                connection = DriverManager.getConnection(URL_MYSQL, USER, PASSWORD);
-                                statement = connection.createStatement();
-                                resultSet = statement.executeQuery("SELECT * FROM Usuario WHERE nombre_usuario = '" + user + "' AND password = '" + encriptar.getMD5(password) + "';");
-                                while (resultSet.next()) {
-                                    sesion.setAttribute("logueado", "1");
-                                    sesion.setAttribute("user", resultSet.getString("user"));
-                                    sesion.setAttribute("id", resultSet.getString("id"));
-                                    response.sendRedirect("../index.jsp");
-                                }
-                                out.print("<div class=\"alert alert-danger\" role=\"alert\"> Usuario no valido</div>");
-                            } catch (Exception e) {
-                            out.print(e);
-                            }
-                        }
-                    --%>
         </div>
     </body>
 </body>

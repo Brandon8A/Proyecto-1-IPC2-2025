@@ -13,6 +13,14 @@
         <script src="https://cdn.tailwindcss.com"></script>
     </head>
     <body class="flex h-screen bg-gray-100">
+        <%
+
+            HttpSession sesion = request.getSession();
+
+            if (sesion.getAttribute("logueado") == null || sesion.getAttribute("logueado").equals("0")) {
+                response.sendRedirect("../index.jsp");
+            }
+        %>
         <!-- Sidebar -->
         <aside class="w-64 bg-gray-800 text-white flex flex-col">
             <div class="p-5 text-xl font-bold border-b border-gray-700">
