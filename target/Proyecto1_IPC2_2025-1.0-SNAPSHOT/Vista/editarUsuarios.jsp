@@ -68,7 +68,7 @@
                                 <%
                                     try {
                                         statement = conexion.getConnection().createStatement();
-                                        resultSet = statement.executeQuery("SELECT u.nombre_usuario, r.nombre_rol FROM Usuario u INNER JOIN Rol r ON u.tipo_rol_fk = r.id_rol;");
+                                        resultSet = statement.executeQuery("SELECT u.nombre_usuario, r.nombre_rol FROM Usuario u INNER JOIN Rol r ON u.tipo_rol_fk = r.id_rol AND (u.tipo_rol_fk = 1 OR u.tipo_rol_fk = 2);");
                                         while (resultSet.next()) {
                                 %>
                                 <tr>

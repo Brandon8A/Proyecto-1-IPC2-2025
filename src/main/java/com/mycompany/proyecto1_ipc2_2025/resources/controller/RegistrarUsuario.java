@@ -87,10 +87,10 @@ public class RegistrarUsuario extends HttpServlet {
                     statement.executeUpdate("INSERT INTO Usuario (nombre_usuario, password, tipo_rol_fk) VALUES('" + nombre + "', '" + encriptar.getMD5(password) + "', '" + rol + "');");
                     switch (rol) {
                             case "1":
-                                request.getRequestDispatcher("../index.jsp").forward(request, response);
+                                request.getRequestDispatcher("index.jsp").forward(request, response);
                                 break;
                             case "2":
-                                request.getRequestDispatcher("../index.jsp").forward(request, response);
+                                request.getRequestDispatcher("index.jsp").forward(request, response);
                                 break;
                             case "3":
                                 request.getRequestDispatcher("Vista/panelAdministracion.jsp").forward(request, response);

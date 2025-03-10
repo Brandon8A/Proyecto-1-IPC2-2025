@@ -4,13 +4,16 @@
  */
 package com.mycompany.proyecto1_ipc2_2025.resources.controller;
 
+import com.mycompany.proyecto1_ipc2_2025.resources.conexiondb.ConexionDB;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.*;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -58,7 +61,18 @@ public class EditarRolUsuario extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
         //processRequest(request, response);
+        HttpSession sesion = request.getSession();
+        ConexionDB conexion = new ConexionDB();
+        Statement statement = null;
+        String nombreUsuario = request.getParameter("nombre");
         String rol = request.getParameter("rol");
+        try {
+            statement = conexion.getConnection().createStatement();
+            statement.executeUpdate("UPDATE Usuario SET tipo_rol_fk='"+ rol +"' WHERE nombre_usuario ='"+ nombreUsuario +"';");
+            //statement.executeQuery("UPDATE Usuario SET tipo_rol_fk ='"+ rol +"' WHERE nombre_usuario ='" + sesion.getAttribute("user") +"';");
+            response.sendRedirect("Vista/editarUsuarios.jsp");
+        } catch (Exception e) {
+        }
     }
 
     /**

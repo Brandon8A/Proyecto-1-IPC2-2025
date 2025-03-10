@@ -21,13 +21,13 @@
         %>
         <div class="w-full max-w-md p-6 bg-white shadow-lg rounded-lg">
             <h2 class="text-2xl font-bold text-center text-gray-800 mb-6">Editar Rol Usuario</h2>
-            <form action="${pageContext.servletContext.contextPath}/EditarRolUsuario" method="post">
-                    <div class="flex justify-between items-center mb-4">
-                        <label class="block text-gray-700 font-medium mb-2">Usuario: <%= request.getParameter("nombre")%></label>
-                    </div>
-                    <div class="flex justify-between items-center mb-4">
-                        <label class="block text-gray-700 font-medium mb-2" for="password">Rol actual: <%= request.getParameter("rol")%></label>
-                    </div>
+            <form action="${pageContext.servletContext.contextPath}/EditarRolUsuario?nombre=<%= request.getParameter("nombre")%>" method="post">
+                <div class="flex justify-between items-center mb-4">
+                    <label class="block text-gray-700 font-medium mb-2">Usuario: <%= request.getParameter("nombre")%></label>
+                </div>
+                <div class="flex justify-between items-center mb-4">
+                    <label class="block text-gray-700 font-medium mb-2" for="password">Rol actual: <%= request.getParameter("rol")%></label>
+                </div>
                 <div class="flex justify-between items-center mb-4">
                     <label class="block text-gray-700 font-medium mb-2" for="password">Cambiar Rol</label>
                     <select class="form-select" name="rol" aria-label="Default select example">
