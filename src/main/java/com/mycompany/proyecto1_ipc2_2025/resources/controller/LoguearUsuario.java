@@ -91,7 +91,6 @@ public class LoguearUsuario extends HttpServlet {
                     sesion.setAttribute("user", resultSet.getString("nombre_usuario"));
 //                    sesion.setAttribute("id", resultSet.getString("id"));
                     String rolUsuario = resultSet.getString("tipo_rol_fk");
-                    System.out.println("Rol: " + rolUsuario);
                     if (rolUsuario.equals("3")) {
                         response.sendRedirect("Vista/panelAdministracion.jsp");
                     } else {

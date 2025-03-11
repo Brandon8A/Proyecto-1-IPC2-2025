@@ -14,6 +14,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -76,32 +77,40 @@ public class RegistrarUsuario extends HttpServlet {
         ConexionDB conexionDB = new ConexionDB();
         Statement statement = null;
         EncriptarMD5 encriptar = new EncriptarMD5();
-        
+        HttpSession sesion = request.getSession();
+
         if (request.getParameter("enviar") != null) {
-                String nombre = request.getParameter("user");
-                String password = request.getParameter("password1");
-                String rol = request.getParameter("rol");
-                try {
-                    
-                    statement = conexionDB.getConnection().createStatement();
-                    statement.executeUpdate("INSERT INTO Usuario (nombre_usuario, password, tipo_rol_fk) VALUES('" + nombre + "', '" + encriptar.getMD5(password) + "', '" + rol + "');");
-                    switch (rol) {
-                            case "1":
-                                request.getRequestDispatcher("index.jsp").forward(request, response);
-                                break;
-                            case "2":
-                                request.getRequestDispatcher("index.jsp").forward(request, response);
-                                break;
-                            case "3":
-                                request.getRequestDispatcher("Vista/panelAdministracion.jsp").forward(request, response);
-                                break;
-                            default:
-                                throw new AssertionError();
-                        }
-                } catch (Exception e) {
-                    System.out.println(e);
+            String nombre = request.getParameter("user");
+            String password = request.getParameter("password1");
+            String rol = request.getParameter("rol");
+            try {
+                statement = conexionDB.getConnection().createStatement();
+                statement.executeUpdate("INSERT INTO Usuario (nombre_usuario, password, tipo_rol_fk) VALUES('" + nombre + "', '" + encriptar.getMD5(password) + "', '" + rol + "');");
+                switch (rol) {
+                    case "1":
+                        sesion.setAttribute("logueado", "1");
+                        sesion.setAttribute("user", nombre);
+                        request.getRequestDispatcher("index.jsp");
+                        response.sendRedirect("index.jsp");
+                        break;
+                    case "2":
+                        sesion.setAttribute("logueado", "1");
+                        sesion.setAttribute("user", nombre);
+                        request.getRequestDispatcher("index.jsp").forward(request, response);
+                        response.sendRedirect("index.jsp");
+                        break;
+                    case "3":
+                        sesion.setAttribute("logueado", "1");
+                        sesion.setAttribute("user", nombre);
+                        response.sendRedirect("Vista/panelAdministracion.jsp");
+                        break;
+                    default:
+                        throw new AssertionError();
                 }
+            } catch (Exception e) {
+                System.out.println(e);
             }
+        }
     }
 
     /**

@@ -31,6 +31,7 @@
         <aside class="w-64 bg-gray-800 text-white flex flex-col">
             <div class="p-5 text-xl font-bold border-b border-gray-700">Usuarios</div>
             <nav class="flex-1 p-4">
+                <a href="crearUsuarioAdmin.jsp" class="block px-4 py-2 rounded-lg hover:bg-gray-700">Crear Usuario</a>
                 <a href="panelAdministracion.jsp" class="block px-4 py-2 rounded-lg hover:bg-gray-700">Regresar</a>
             </nav>
             <div class="p-4 border-t border-gray-700">
@@ -68,7 +69,7 @@
                                 <%
                                     try {
                                         statement = conexion.getConnection().createStatement();
-                                        resultSet = statement.executeQuery("SELECT u.nombre_usuario, r.nombre_rol FROM Usuario u INNER JOIN Rol r ON u.tipo_rol_fk = r.id_rol AND (u.tipo_rol_fk = 1 OR u.tipo_rol_fk = 2);");
+                                        resultSet = statement.executeQuery("SELECT u.nombre_usuario, r.nombre_rol FROM Usuario u INNER JOIN Rol r ON u.tipo_rol_fk = r.id_rol AND (u.tipo_rol_fk = 1 OR u.tipo_rol_fk = 2) AND (eliminado = FALSE);");
                                         while (resultSet.next()) {
                                 %>
                                 <tr>
@@ -76,13 +77,14 @@
                                     <td><%= resultSet.getString(2)%></td>
                                     <td>
                                         <a href="editarRolUsuario.jsp?nombre=<%= resultSet.getString(1)%>&rol=<%= resultSet.getString(2)%>"><i class="fa fa-pencil" aria-hidden="true"></i></a>
-                                        <a href="#" class="ml-3"><i class="fa fa-trash"></i></a>
+                                        <a href="eliminarUsuario.jsp?nombre=<%= resultSet.getString(1)%>" class="ml-3"><i class="fa fa-trash"></i></a>
                                     </td>
                                     </td>
                                 </tr>
                                 <%
                                         }
                                     } catch (Exception e) {
+                                        out.print(e);
                                     }
                                 %>
                             </tbody>
