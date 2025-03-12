@@ -16,11 +16,13 @@ public class ConexionDB {
     private static final String PASSWORD = "brandon031200";
     
     private Connection connection;
+    private Statement statement;
     
     public ConexionDB(){
         try {
             Class.forName("com.mysql.jdbc.Driver");
             connection = DriverManager.getConnection(URL_MYSQL, USER, PASSWORD);
+            statement = connection.createStatement();
             System.out.println("Ingresando a base de datos correctamente...");
         } catch (SQLException e) {
             System.out.println("Error al conectar a la Base de Datos.");
@@ -32,6 +34,10 @@ public class ConexionDB {
 
     public Connection getConnection() {
         return connection;
+    }
+
+    public Statement getStatement() {
+        return statement;
     }
     
     

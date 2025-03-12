@@ -4,6 +4,8 @@
  */
 package com.mycompany.proyecto1_ipc2_2025.resources.controller;
 
+import com.mycompany.proyecto1_ipc2_2025.resources.conexiondb.ConexionDB;
+import com.mycompany.proyecto1_ipc2_2025.resources.database.InsertarDatosDB;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -68,6 +70,8 @@ public class CargarArchivo extends HttpServlet {
      */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        ConexionDB conexionDB = new ConexionDB();
+        InsertarDatosDB insertarDatosDB = new InsertarDatosDB(conexionDB);
         //processRequest(request, response);
         // Asegúrate de que el servidor esté configurado para manejar archivos (ver más abajo)
 //        request.setCharacterEncoding("UTF-8");
@@ -96,22 +100,15 @@ public class CargarArchivo extends HttpServlet {
             }
         }
 
-        // Leer el archivo de texto y mostrar su contenido
-        StringBuilder contenidoArchivo = new StringBuilder();
+        // Leer el archivo de texto
         try (BufferedReader reader = new BufferedReader(new FileReader(archivoGuardado))) {
             String linea;
             while ((linea = reader.readLine()) != null) {
-                contenidoArchivo.append(linea).append("<br>");
+                System.out.println(linea);
+                insertarDatosDB.identificarInstrucciones(linea);
             }
         }
-
-        // Enviar la respuesta con el contenido del archivo al navegador
-        response.setContentType("text/html");
-        PrintWriter out = response.getWriter();
-        out.println("<html><body>");
-        out.println("<h2>Contenido del archivo cargado:</h2>");
-        out.println("<pre>" + contenidoArchivo.toString() + "</pre>");
-        out.println("</body></html>");
+        response.sendRedirect("Vista/cargarDatos.jsp");
     }
 
     /**
