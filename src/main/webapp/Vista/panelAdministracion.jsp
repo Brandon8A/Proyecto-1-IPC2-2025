@@ -25,9 +25,9 @@
             <nav class="flex-1 p-4">
                 <a href="editarUsuarios.jsp" class="block px-4 py-2 rounded-lg hover:bg-gray-700">Usuarios</a>
                 <a href="cargarDatos.jsp" class="block px-4 py-2 rounded-lg hover:bg-gray-700">Carga de datos</a>
-                <a href="#" class="block px-4 py-2 rounded-lg hover:bg-gray-700">Reportes</a>
-                <a href="#" class="block px-4 py-2 rounded-lg hover:bg-gray-700">Ventas</a>
                 <a href="#" class="block px-4 py-2 rounded-lg hover:bg-gray-700">Ensamble</a>
+                <a href="#" class="block px-4 py-2 rounded-lg hover:bg-gray-700">Ventas</a>
+                <a href="reportes.jsp" class="block px-4 py-2 rounded-lg hover:bg-gray-700">Reportes</a>
             </nav>
             <div class="p-4 border-t border-gray-700">
                 <a href="${pageContext.servletContext.contextPath}/CerrarSesion" class="block px-4 py-2 text-red-400 hover:bg-red-600 hover:text-white rounded-lg">

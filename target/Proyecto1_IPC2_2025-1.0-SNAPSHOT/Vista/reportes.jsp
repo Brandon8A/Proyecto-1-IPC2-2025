@@ -1,6 +1,6 @@
 <%-- 
-    Document   : panelAdministracion
-    Created on : 8 mar 2025, 23:23:08
+    Document   : reportes
+    Created on : 12 mar 2025, 3:28:02
     Author     : brandon
 --%>
 
@@ -9,8 +9,8 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Panel de Administración</title>
         <script src="https://cdn.tailwindcss.com"></script>
+        <title>Reportes</title>
     </head>
     <body class="flex h-screen bg-gray-100">
         <%
@@ -21,13 +21,16 @@
         %>
         <!-- Sidebar -->
         <aside class="w-64 bg-gray-800 text-white flex flex-col">
-            <div class="p-5 text-xl font-bold border-b border-gray-700">Panel</div>
+            <div class="p-5 text-xl font-bold border-b border-gray-700">Reportes</div>
             <nav class="flex-1 p-4">
-                <a href="editarUsuarios.jsp" class="block px-4 py-2 rounded-lg hover:bg-gray-700">Usuarios</a>
-                <a href="cargarDatos.jsp" class="block px-4 py-2 rounded-lg hover:bg-gray-700">Carga de datos</a>
-                <a href="#" class="block px-4 py-2 rounded-lg hover:bg-gray-700">Ensamble</a>
                 <a href="#" class="block px-4 py-2 rounded-lg hover:bg-gray-700">Ventas</a>
-                <a href="reportes.jsp" class="block px-4 py-2 rounded-lg hover:bg-gray-700">Reportes</a>
+                <a href="#" class="block px-4 py-2 rounded-lg hover:bg-gray-700">Devoluciones</a>
+                <a href="#" class="block px-4 py-2 rounded-lg hover:bg-gray-700">Ganancias</a>
+                <a href="#" class="block px-4 py-2 rounded-lg hover:bg-gray-700">Usuario con mas Ventas</a>
+                <a href="#" class="block px-4 py-2 rounded-lg hover:bg-gray-700">Usuario con mas Ganancias</a>
+                <a href="#" class="block px-4 py-2 rounded-lg hover:bg-gray-700">Computadora mas Vendida</a>
+                <a href="#" class="block px-4 py-2 rounded-lg hover:bg-gray-700">Computadora menos Vendida</a>
+                <a href="panelAdministracion.jsp" class="block px-4 py-2 rounded-lg hover:bg-gray-700">Regresar</a>
             </nav>
             <div class="p-4 border-t border-gray-700">
                 <a href="${pageContext.servletContext.contextPath}/CerrarSesion" class="block px-4 py-2 text-red-400 hover:bg-red-600 hover:text-white rounded-lg">
