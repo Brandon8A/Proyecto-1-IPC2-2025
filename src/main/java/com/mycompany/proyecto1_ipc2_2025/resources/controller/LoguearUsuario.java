@@ -85,7 +85,7 @@ public class LoguearUsuario extends HttpServlet {
             HttpSession sesion = request.getSession();
             try {
                 statement = conexionDB.getConnection().createStatement();
-                resultSet = statement.executeQuery("SELECT * FROM Usuario WHERE nombre_usuario = '" + user + "' AND password = '" + encriptar.getMD5(password) + "';");
+                resultSet = statement.executeQuery("SELECT * FROM Usuario WHERE nombre_usuario = '" + user + "' AND password = '" + encriptar.getMD5(password) + "' AND eliminado = FALSE;");
                 while (resultSet.next()) {
                     sesion.setAttribute("logueado", "1");
                     sesion.setAttribute("user", resultSet.getString("nombre_usuario"));

@@ -1,0 +1,6 @@
+USUARIO(“fernando”,”miPassword”,1)
+USUARIO(“e”,”miPassword”,2)
+USUARIO(“d”,”miPassword”,1)
+USUARIO(“c”,”miPassword”,2)
+USUARIO(“b”,”miPassword”,2)
+USUARIO(“a”,”miPassword”,1)
