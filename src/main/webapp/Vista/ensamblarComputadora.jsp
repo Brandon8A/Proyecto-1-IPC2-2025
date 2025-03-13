@@ -19,6 +19,7 @@
     <body class="flex h-screen bg-gray-100">
         <%
             HttpSession sesion = request.getSession();
+            sesion.setAttribute("ensamblar", true);
             if (sesion.getAttribute("logueado") == null || sesion.getAttribute("logueado").equals("0")) {
                 response.sendRedirect("../index.jsp");
             }
@@ -74,7 +75,9 @@
                                 <tr>
                                     <th scope="row"><%= resultSet.getString(1)%></th>
                                     <td>
-                                        <a href="seleccionarPieza.jsp?tipoComputadora=<%= resultSet.getString(1)%>"><i class="fa fa-plus-circle" aria-hidden="true"></i></a>
+                                        <a href="seleccionarPieza.jsp?tipoComputadora=<%= resultSet.getString(1)%>"><i class="fa fa-plus-circle" aria-hidden="true"></i>
+
+                                        </a>
                                     </td>
                                 </tr>
                                 <%
