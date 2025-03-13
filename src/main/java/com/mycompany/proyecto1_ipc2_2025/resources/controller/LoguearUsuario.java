@@ -93,8 +93,10 @@ public class LoguearUsuario extends HttpServlet {
                     String rolUsuario = resultSet.getString("tipo_rol_fk");
                     if (rolUsuario.equals("3")) {
                         response.sendRedirect("Vista/panelAdministracion.jsp");
+                    } else if (rolUsuario.equals("2")) {
+                        response.sendRedirect("Vista/Venta/venta.jsp");
                     } else {
-                        response.sendRedirect("index.jsp");
+                        response.sendRedirect("Vista/Ensamble/ensablar.jsp");
                     }
                 }
                 //out.print("<div class=\"alert alert-danger\" role=\"alert\">Usuario no valido</div>");

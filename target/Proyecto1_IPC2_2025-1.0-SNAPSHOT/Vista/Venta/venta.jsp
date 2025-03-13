@@ -14,16 +14,20 @@
     </head>
     <body class="flex h-screen bg-gray-100">
         <%
-            HttpSession sesion = request.getSession();
-            if (sesion.getAttribute("logueado") == null || sesion.getAttribute("logueado").equals("0")) {
-                response.sendRedirect("../../index.jsp");
-            }
-        %>
+            //HttpSession sesion = request.getSession();
+            // if (sesion.getAttribute("logueado") == null || sesion.getAttribute("logueado").equals("0")) {
+            //     response.sendRedirect("../../index.jsp");
+            // }
+%>
         <!-- Sidebar -->
         <aside class="w-64 bg-gray-800 text-white flex flex-col">
-            <div class="p-5 text-xl font-bold border-b border-gray-700">Panel</div>
+            <div class="p-5 text-xl font-bold border-b border-gray-700">Consultas</div>
             <nav class="flex-1 p-4">
-                <a href="../panelAdministracion.jsp" class="block px-4 py-2 rounded-lg hover:bg-gray-700">Regresar</a>
+                <a href="#" class="block px-4 py-2 rounded-lg hover:bg-gray-700">Compras cliente</a>
+                <a href="#" class="block px-4 py-2 rounded-lg hover:bg-gray-700">Devoluciones cliente</a>
+                <a href="#" class="block px-4 py-2 rounded-lg hover:bg-gray-700">Computadoras disponibles</a>
+                <a href="#" class="block px-4 py-2 rounded-lg hover:bg-gray-700">Factura de cliente...</a>
+                <a href="../panelAdministracion.jsp" class="block px-4 py-2 rounded-lg hover:bg-gray-700">Ventas del dia</a>
             </nav>
             <div class="p-4 border-t border-gray-700">
                 <a href="${pageContext.servletContext.contextPath}/CerrarSesion" class="block px-4 py-2 text-red-400 hover:bg-red-600 hover:text-white rounded-lg">
@@ -45,7 +49,7 @@
             <main class="flex-1 p-6">
                 <div class="bg-white p-6 shadow rounded-lg">
                     <h2 class="text-2xl font-bold mb-4">Bienvenido al Panel de Ventas</h2>
-                    
+
                 </div>
             </main>
             <!-- Footer -->
