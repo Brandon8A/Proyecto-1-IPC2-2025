@@ -30,6 +30,7 @@
         <aside class="w-64 bg-gray-800 text-white flex flex-col">
             <div class="p-5 text-xl font-bold border-b border-gray-700">Panel</div>
             <nav class="flex-1 p-4">
+                <a href="crudComponentes.jsp" class="block px-4 py-2 rounded-lg hover:bg-gray-700">Componentes</a>
                 <a href="panelAdministracion.jsp" class="block px-4 py-2 rounded-lg hover:bg-gray-700">Regresar</a>
             </nav>
             <div class="p-4 border-t border-gray-700">
