@@ -67,7 +67,6 @@ public class CrearUsuarioAdmin extends HttpServlet {
         ConexionDB conexionDB = new ConexionDB();
         Statement statement = null;
         EncriptarMD5 encriptar = new EncriptarMD5();
-        HttpSession sesion = request.getSession();
 
         if (request.getParameter("enviar") != null) {
             String nombre = request.getParameter("user");

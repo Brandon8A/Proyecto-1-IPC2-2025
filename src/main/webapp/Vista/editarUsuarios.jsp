@@ -83,6 +83,7 @@
                                 </tr>
                                 <%
                                         }
+                                        statement.close();
                                     } catch (Exception e) {
                                         out.print(e);
                                     }
