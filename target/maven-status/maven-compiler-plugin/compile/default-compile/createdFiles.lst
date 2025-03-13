@@ -1,5 +1,6 @@
 com/mycompany/proyecto1_ipc2_2025/usuario/ObtenerUsuario.class
 com/mycompany/proyecto1_ipc2_2025/resources/controller/EditarRolUsuario.class
+com/mycompany/proyecto1_ipc2_2025/resources/controller/EditarComponenteAdmin.class
 com/mycompany/proyecto1_ipc2_2025/resources/database/InsertarDatosDB.class
 com/mycompany/proyecto1_ipc2_2025/resources/controller/CrearUsuarioAdmin.class
 com/mycompany/proyecto1_ipc2_2025/resources/controller/RegistrarUsuario.class

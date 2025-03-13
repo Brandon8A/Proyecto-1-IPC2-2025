@@ -85,7 +85,7 @@
                                     <th scope="row"><%= resultSet.getString(1)%></th>
                                     <th scope="row"><%= resultSet.getString(2)%></th>
                                     <td>
-                                        <a><i class="fa fa-pencil" aria-hidden="true"></i></a>
+                                        <a href="editarComponentes.jsp?id=<%= resultSet.getString(1)%>" ><i class="fa fa-pencil" aria-hidden="true"></i></a>
                                         <a href="eliminarComponente.jsp?id=<%= resultSet.getString(1)%>"><i class="fa fa-trash ml-3"></i></a>
                                     </td>
                                     </td>
